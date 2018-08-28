@@ -1,0 +1,12 @@
+<h1>
+  <%= link_to @project.title, edit_project_path(@project) %>
+</h1>
+<%= render partial: 'items/index', locals: { project: @project } %>
+<div class="container">
+  <div class="row">
+      <div class="actions">
+        <div class="col-2"></div>
+        <div class="col-8"><%= link_to 'Back', projects_path %></div>
+      </div>
+  </div>
+</div>

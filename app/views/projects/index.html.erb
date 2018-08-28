@@ -1,0 +1,17 @@
+<h1>Projects</h1>
+<br>
+<ul class="list-group">
+    <% if @projects.empty? %>
+      <li>No projects.</li>
+    <% end %>
+    <% @projects.each do |project| %>
+      <li class="list-group-item">
+        <%= link_to project.title,  project_path(project) %>
+        <span>
+          <%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </span>
+      </li>
+    <% end %>
+</ul>
+
+<h4><%= link_to 'New Project', new_project_path %></h4>

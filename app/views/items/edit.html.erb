@@ -1,0 +1,56 @@
+
+<h1>Edit Item</h1>
+<%= form_for([@project, @item], :url => { :action => :update }) do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@item.errors.count, 'error') %>
+        prohibited this project from being saved:
+      </h2>
+      <ul>
+        <% @item.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<br>
+  <div class="container">
+    <div class="row">
+        <div class="field">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-2"><%= f.label :action %></div>
+          <div class="col-sm-4"><%= f.text_field :action, size: '40' %></div>
+        </div>
+    </div>
+  </div>
+  <br>
+
+  <div class="container">
+    <div class="row">
+        <div class="actions">
+          <div class="col-md-6"></div>
+          <div class="col-md-4">
+            <div class="field">
+              <%= f.label :done, 'Done?' %>
+              <%= f.check_box :done %>
+            </div>
+            <div class="actions">
+              <%= f.submit %>
+            </div>
+          </div>
+        </div>
+    </div>
+
+<% end %>
+
+<div class="container">
+  <div class="row">
+      <div class="actions">
+        <div class="col-2"></div>
+        <div class="col-8"><%= link_to 'Back', projects_path %></div>
+      </div>
+  </div>
+</div>
